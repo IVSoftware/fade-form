@@ -21,7 +21,11 @@ namespace fade_form
                     }
                 };
             }
-            Disposed += (sender, e) => FadeForm.Dispose();
+            Disposed += (sender, e) =>
+            {
+                FadeForm.Dispose();
+                form1.Dispose();
+            };
         }
         Form1 form1 { get; } = new Form1
         {
@@ -62,7 +66,8 @@ namespace fade_form
             base.Show(owner);
             if (owner is Form parent)
             {
-                Bounds = parent.RectangleToScreen(parent.ClientRectangle);
+                localSubscribeParent();
+                localTrackParent(this, EventArgs.Empty);
                 
                 // Animate
                 for (float f = 0; f <= TARGET_OPACITY; f += 0.05F)
@@ -71,6 +76,15 @@ namespace fade_form
                     await Task.Delay(TimeSpan.FromSeconds(0.01));
                     if (!Visible) break; // If form hides during animation.
                 }
+                void localSubscribeParent()
+                {
+                    parent.Move -= localTrackParent;
+                    parent.SizeChanged -= localTrackParent;
+                    parent.Move += localTrackParent;
+                    parent.SizeChanged += localTrackParent;
+                }
+                void localTrackParent(object? sender, EventArgs e) =>
+                    Bounds = parent.RectangleToScreen(parent.ClientRectangle);
             }
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
