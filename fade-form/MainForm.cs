@@ -6,10 +6,12 @@ namespace fade_form
         public MainForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             foreach (var button in panel1.Controls.OfType<Button>())
             {
                 button.MouseEnter += (sender, e) =>
                 {
+                    FadeForm.Hide();
                     FadeForm.Show(form1);
                     switch (button.Name) 
                     {
@@ -17,10 +19,6 @@ namespace fade_form
                         case nameof(button2): FadeForm.BackColor = Color.LightGreen; break;
                         case nameof(button3): FadeForm.BackColor = Color.LightCoral; break;
                     }
-                };
-                button.MouseLeave += (sender, e) =>
-                {
-                    FadeForm.Hide();
                 };
             }
             Disposed += (sender, e) => FadeForm.Dispose();
@@ -40,11 +38,24 @@ namespace fade_form
 
     class FadeForm : Form
     {
-        const float TARGET_OPACITY = 0.8F;
+        const float TARGET_OPACITY = 0.85F;
         public FadeForm()
         {
             BackColor = Color.DarkGray;
             FormBorderStyle = FormBorderStyle.None;
+            Padding = new Padding(0, 0, 0, 20);
+            var linkLabel = new LinkLabel
+            {
+                Dock = DockStyle.Bottom,
+                Text = "https://www.google.com",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Height = 50,
+            };
+            linkLabel.LinkClicked += (sender, e) =>
+            {
+                MessageBox.Show($"Do something with {linkLabel.Text}");
+            };
+            Controls.Add(linkLabel);
         }
         public new async void Show(IWin32Window owner)
         {
