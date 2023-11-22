@@ -4,7 +4,7 @@ Let me see if I follow.
 
 > i have a panel in my form
 
-[![sample panel][1]][1]
+[![sample panel with three rando buttons][1]][1]
 ___
 
 > there is form named form1 opened inside a panel
@@ -30,7 +30,7 @@ public partial class MainForm : Form
 [![form inside panel][2]][2]
 ___
 
-> i want to add this fade form over this form1 so that the **control of form1 should be partially visible** and when this happened
+> i want to add this fade form **over** this **form1** so that the **control of form1 should be partially visible** and when this happened
 
 [![animation][3]][3]
 
@@ -38,7 +38,7 @@ ___
 ```
 class FadeForm : Form
 {
-    const float TARGET_OPACITY = 0.85F;
+    const float TARGET_OPACITY = 0.8F;
     public FadeForm()
     {
         BackColor = Color.DarkGray;
@@ -129,7 +129,7 @@ ___
 My crystal ball gets fuzzy at this point about what you want to do next but hopefully this gives you a starting point.
 
 
-  [1]: https://i.stack.imgur.com/r2VUi.png
-  [2]: https://i.stack.imgur.com/SKKTj.png
-  [3]: https://i.stack.imgur.com/hbmd7.png
-  [4]: https://i.stack.imgur.com/DF7DM.png
+  [1]: https://i.stack.imgur.com/u9lzS.png
+  [2]: https://i.stack.imgur.com/4p8ex.png
+  [3]: https://i.stack.imgur.com/BtwMg.png
+  [4]: https://i.stack.imgur.com/AVf8B.png

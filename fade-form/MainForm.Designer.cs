@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,14 +47,14 @@
             panel1.Size = new Size(538, 304);
             panel1.TabIndex = 0;
             // 
-            // button1
+            // button3
             // 
-            button1.Location = new Point(25, 27);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 54);
-            button1.TabIndex = 0;
-            button1.Text = "Button 2";
-            button1.UseVisualStyleBackColor = true;
+            button3.Location = new Point(25, 206);
+            button3.Name = "button3";
+            button3.Size = new Size(131, 54);
+            button3.TabIndex = 0;
+            button3.Text = "Button 3";
+            button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -65,14 +65,14 @@
             button2.Text = "Button 2";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button1
             // 
-            button3.Location = new Point(25, 206);
-            button3.Name = "button3";
-            button3.Size = new Size(131, 54);
-            button3.TabIndex = 0;
-            button3.Text = "Button 3";
-            button3.UseVisualStyleBackColor = true;
+            button1.Location = new Point(25, 27);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 54);
+            button1.TabIndex = 0;
+            button1.Text = "Button 1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
